@@ -1,0 +1,118 @@
+/* Import Bootstrap CSS */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Custom CSS Variables */
+:root { 
+    --green: #00e676; 
+    --card: #1a1a1a; 
+    --border: #333; 
+    --blue-optimized: #3498db; 
+}
+
+/* Base Styles */
+body { 
+    background: #000; 
+    color: #fff; 
+    margin:0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: var(--green);
+}
+a {
+    color: var(--green);
+    text-decoration: none;
+}
+a:hover {
+    color: #00b359;
+}
+
+/* Sidebar Styling */
+.sidebar-wrapper { 
+    width: 260px; 
+    background: #0e0e0e; 
+    position: fixed; 
+    height: 100vh; 
+    border-right: 1px solid var(--border); 
+    z-index: 1000; 
+}
+.page-content-wrapper { 
+    margin-left: 260px; 
+    padding-bottom: 50px; 
+}
+.list-group-item { 
+    background: transparent; 
+    color: #ccc; 
+    border: none; 
+    padding: 1rem 1.5rem; 
+    transition: background 0.2s;
+}
+.list-group-item:hover, .list-group-item.active-custom { 
+    background: rgba(0,230,118,0.2); 
+    color: var(--green); 
+    border-radius: 5px;
+}
+.sidebar-logo {
+    max-width: 150px;
+}
+
+/* Card and Forms */
+.card-custom { 
+    background-color: var(--card); 
+    border: 1px solid var(--border); 
+    color: #fff; 
+    border-radius: 8px;
+}
+.form-control { 
+    background-color: #242424; 
+    border: 1px solid #444; 
+    color: #fff; 
+    caret-color: white; 
+}
+.form-control::placeholder { 
+    color: #bbb; 
+}
+.form-control:focus { 
+    background-color: #2d2d2d; 
+    border-color: var(--green); 
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.4); 
+}
+
+/* Buttons */
+.btn-success-custom { 
+    background-color: #4CAF50; 
+    border-color: #4CAF50; 
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+.btn-success-custom:hover { 
+    background-color: #43A047; 
+    border-color: #43A047; 
+}
+
+/* Dashboard Status Cards */
+.status-card .icon {
+    font-size: 2.5rem;
+    color: var(--green);
+}
+
+/* Login/Register Specific Styles */
+.login-container { 
+    background-color: #121212; 
+    border: 1px solid #333; 
+    color: #fff; 
+    border-radius: 15px; 
+}
+
+/* Table Styles */
+.table-dark-custom {
+    --bs-table-bg: #1a1a1a;
+    --bs-table-color: #fff;
+}
+.table-dark-custom th {
+    color: var(--green);
+    border-bottom-color: var(--green);
+}
+.table-dark-custom td, .table-dark-custom th {
+    border-color: #333;
+}
