@@ -10,18 +10,25 @@ const Register = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     
-    const { signup } = useAuth();
+    const { signup } = useAuth(); // Ngayon ay gagana na ito dahil may 'signup' na sa Context
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (password !== confirmPassword) return setError("Passwords do not match");
+        
+        if (password !== confirmPassword) {
+            return setError("Passwords do not match");
+        }
+
         try {
             setError("");
             setLoading(true);
             await signup(email, password);
             navigate("/");
-        } catch (err) { setError(err.message.replace('Firebase: ', '')); }
+        } catch (err) { 
+            // Linisin ang Firebase error message para mas maganda tingnan
+            setError(err.message.replace('Firebase: ', '')); 
+        }
         setLoading(false);
     };
 
@@ -30,7 +37,6 @@ const Register = () => {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
             
             <div className="login-container shadow-lg">
-                {/* SIDEBAR WITH LOGO */}
                 <div className="login-sidebar d-none d-lg-flex flex-column justify-content-between p-4 bg-light border-end">
                     <div className="text-center mt-4">
                         <img src="/logo.png" alt="EcoVolt Logo" style={{ width: '100px', marginBottom: '20px' }} />
@@ -51,7 +57,6 @@ const Register = () => {
                     <div className="small text-muted opacity-75 text-center">© 2025 EcoVolt Technologies.</div>
                 </div>
 
-                {/* REGISTER FORM AREA */}
                 <div className="login-form-area p-4 p-md-5 bg-white">
                     <div className="mb-4 text-center text-md-start">
                         <h3 className="fw-bold text-dark mb-1">Create Account</h3>
@@ -102,7 +107,6 @@ const Register = () => {
             </div>
 
             <style>{`
-                /* Same CSS variables as Login for consistency */
                 .login-viewport { min-height: 100vh; background: #f1f5f9; }
                 .login-container { display: flex; width: 950px; min-height: 550px; border-radius: 24px; overflow: hidden; }
                 .login-sidebar { width: 380px; }
